@@ -8,14 +8,11 @@ yearlist.innerHTML = yearSegment;
 function filterby(that,year){
         const node = document.querySelector('.launch-program');
         node.innerHTML = '';
-        // this.target.className = 'active';
         const removeClass = document.querySelectorAll('.active');
         if (removeClass) removeClass.forEach(obj=>obj.classList.remove("active"));
-        // console.log(that);
         that.className = 'years active';
         fetch (`https://api.spaceXdata.com/v3/launches?limit=100&launch_year=${year}`).then(async Response => {
         const filterdata = await Response.json();
-        // console.log(filterdata);
         multiplyNode(node, filterdata);
     });    
 }
@@ -25,15 +22,12 @@ function filterbylaunch(that, success){
     node.innerHTML = '';
     const removeClass = document.querySelector('.active.option');
     if (removeClass) removeClass.classList.remove('active');
-    // console.log(that);
     that.className = 'option active';
     activeYear = document.querySelector('.years.active');
     if (activeYear) activeYear = activeYear.innerHTML.trim();
-    console.log(activeYear);
     const yearUrl = activeYear ? `&launch_year=${activeYear}` : '';
     fetch (`https://api.spaceXdata.com/v3/launches?limit=100&launch_success=${success}${yearUrl}`).then(async Response => {
     const launch = await Response.json();
-    // console.log(launch);
     multiplyNode(node, launch);
     });
 }
@@ -42,16 +36,13 @@ function filterbylanding(that, success){
     node.innerHTML = '';
     const removeClass = document.querySelector('.active.option2');
     if (removeClass) removeClass.classList.remove('active');
-    // console.log(that);
     that.className = 'option2 active';
     document.querySelector('#success-true').classList.add('active');
     activeYear = document.querySelector('.years.active');
     if (activeYear) activeYear = activeYear.innerHTML;
-    console.log(activeYear);
     const yearUrl = activeYear ? `&launch_year=${activeYear}` : '';
     fetch (`https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=${success}${yearUrl}`).then(async Response => {
     const landing = await Response.json();
-    // console.log(landing);
     multiplyNode(node, landing);
     });
 }
@@ -79,7 +70,6 @@ function multiplyNode(node, programs) {
 }
 const getData = async function (){
     const api = await (await fetch ('https://api.spaceXdata.com/v3/launches?limit=100')).json();
-    // console.log(api);
     multiplyNode(document.querySelector('.launch-program'), api);
 }
 getData();
