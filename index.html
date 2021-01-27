@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>SpaceX</title>
+</head>
+<body>
+    <div class="main-container">
+        <h1 id="title">SpaceX Launch Program</h1>
+        <div class="sub-container">
+            <div class="filter-box">
+                <span class="filterby"><b>Filters</b></span>
+                <span class="launch-year">Launch Years</span>
+                <div class="year-list">
+                    
+                </div>
+                <span class="success-launch">Successful Launch</span>
+                    <div class="success-container">
+                        <div class="option" id="success-true" onclick = "filterbylaunch(this,true)"> True </div>
+                        <div class="option" onclick = "filterbylaunch(this,false)"> False </div>
+                    </div>
+                <span class="success-landing">Successful Landing</span>
+                    <div class="success-container">
+                        <div class="option2" onclick = "filterbylanding(this,true)"> True </div>
+                        <div class="option2" onclick = "filterbylanding(this,false)"> False </div>
+                    </div>
+            </div>    
+
+            <div class="launch-program">
+               
+            </div>
+        </div>
+
+
+        <footer>
+           <h3> Developed By: Sagar Sahu </h3>
+        </footer>
+    </div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
